@@ -8,7 +8,7 @@ namespace SimpleLogger.Sample
         public static void Main()
         {
             // Adding handler - to show log messages (ILoggerHandler)
-            ILogger logger = new Logger();
+            ILogger logger = Logger.Instance;
             logger.LoggerHandlerManager
                 .RegisterHandler(new ConsoleLoggerHandler())
                 .RegisterHandler(new FileLoggerHandler())
@@ -53,6 +53,9 @@ namespace SimpleLogger.Sample
             logger.Warning("Warning Log");
             logger.Error("Error Log");
             logger.Fatal("Fatal Log");
+
+            // Singelton Test
+            Logger.Instance.Info("Singelton Test, should log on the defined handlers.");
 
 
             Console.ReadKey();

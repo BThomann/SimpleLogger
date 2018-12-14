@@ -20,17 +20,26 @@ namespace SimpleLogger.Logging
 
         #region Constructors
 
+        // Explicit static constructor to tell C# compiler not to mark type as beforefieldinit
+        static Logger()
+        { }
+
         /// <summary>
-        /// Default Constructor
+        /// Private default Constructor
         /// </summary>
-        public Logger()
+        private Logger()
         {
             LogPublisher = new LogPublisher();
         }
 
         #endregion
-        
+
         #region Properties
+
+        /// <summary>
+        /// Singelton getter.
+        /// </summary>
+        public static Logger Instance { get; } = new Logger();
 
         /// <inheritdoc />
         public LogLevel DefaultLogLevel { get; set; } = LogLevel.Info;
