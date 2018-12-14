@@ -5,11 +5,12 @@ This is a fork from another GitHub Repo(https://github.com/jirkapenzes/SimpleLog
 
 Usage
 -------
+Also see Programm.cs:
 ```csharp
     public static void Main()
         {
             // Adding handler - to show log messages (ILoggerHandler)
-            ILogger logger = new Logger();
+            ILogger logger = Logger.Instance;
             logger.LoggerHandlerManager
                 .RegisterHandler(new ConsoleLoggerHandler())
                 .RegisterHandler(new FileLoggerHandler())
@@ -55,6 +56,9 @@ Usage
             logger.Error("Error Log");
             logger.Fatal("Fatal Log");
 
+            // Singelton Test
+            Logger.Instance.Info("Singelton Test, should log on the defined handlers.");
+
 
             Console.ReadKey();
         }
@@ -62,16 +66,18 @@ Usage
 
 #### Output
 ```
-14.12.18 14:53:18: Info [line: 19 Program -> Main()]: Hello world
-14.12.18 14:53:18: Info [line: 22 Program -> Main()]: Explicit define level
-14.12.18 14:53:18: Error [line: 36 Program -> Main()]: Eine Ausnahme vom Typ "System.Exception" wurde ausgelöst.
-14.12.18 14:53:18: Debug [line: 41 Program -> Main()]: Debug log
-14.12.18 14:53:18: Debug [line: 47 Program -> Main()]: I'am back!
-14.12.18 14:53:18: Trace [line: 50 Program -> Main()]: Trace log
-14.12.18 14:53:18: Debug [line: 51 Program -> Main()]: Debug Log
-14.12.18 14:53:18: Info [line: 52 Program -> Main()]: Info Log
-14.12.18 14:53:18: Warning [line: 53 Program -> Main()]: Warning Log
-14.12.18 14:53:18: Error [line: 54 Program -> Main()]: Error Log
-14.12.18 14:53:18: Fatal [line: 55 Program -> Main()]: Fatal Log
+14.12.18 22:26:12: Info [line: 19 Program -> Main()]: Hello world
+14.12.18 22:26:12: Info [line: 22 Program -> Main()]: Explicit define level
+14.12.18 22:26:12: Error [line: 36 Program -> Main()]: Eine Ausnahme vom Typ "System.Exception" wurde ausgelöst.
+14.12.18 22:26:12: Debug [line: 41 Program -> Main()]: Debug log
+14.12.18 22:26:12: Debug [line: 47 Program -> Main()]: I'am back!
+14.12.18 22:26:12: Trace [line: 50 Program -> Main()]: Trace log
+14.12.18 22:26:12: Debug [line: 51 Program -> Main()]: Debug Log
+14.12.18 22:26:12: Info [line: 52 Program -> Main()]: Info Log
+14.12.18 22:26:12: Warning [line: 53 Program -> Main()]: Warning Log
+14.12.18 22:26:12: Error [line: 54 Program -> Main()]: Error Log
+14.12.18 22:26:12: Fatal [line: 55 Program -> Main()]: Fatal Log
+14.12.18 22:26:12: Info [line: 58 Program -> Main()]: Singelton Test, should log on the defined handlers.
+
 
 ```
