@@ -40,9 +40,9 @@
     <Compile Include="Logging\LoggerFilter\FilterByLevel.cs" />
     <Compile Include="Logging\LoggerFilter\FilterPredicates.cs" />
     <Compile Include="Logging\Logger\ILogger.cs" />
-    <Compile Include="Logging\Logger\Level.cs" />
     <Compile Include="Logging\Logger\Logger.cs" />
     <Compile Include="Logging\LoggerFilter\FilteredHandler.cs" />
+    <Compile Include="Logging\Logger\LogLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Logging\LoggerHandlers\ConsoleLoggerHandler.cs" />
     <Compile Include="Logging\LoggerHandlers\DebugConsoleLoggerHandler.cs" />

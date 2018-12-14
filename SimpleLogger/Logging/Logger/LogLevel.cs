@@ -2,6 +2,8 @@
 {
     public enum LogLevel
     {
+        // the same LogLevels wich are used for NLog see: https://github.com/NLog/NLog/wiki/Configuration-file#log-levels
+
         /// <summary>Use to turn Logger of via </summary>
         None,
         /// <summary>For trace debugging; begin method X, end method X</summary>

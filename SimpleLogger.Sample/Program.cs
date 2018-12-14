@@ -11,7 +11,7 @@ namespace SimpleLogger.Sample
             ILogger logger = new Logger();
             logger.LoggerHandlerManager
                 .RegisterHandler(new ConsoleLoggerHandler())
-                .RegisterHandler(new FileLoggerHandler(FileLoggerHandler.CreateFileName(), @"C:\Logs"))
+                .RegisterHandler(new FileLoggerHandler())
                 .RegisterHandler(new DebugConsoleLoggerHandler());
 
             
@@ -46,7 +46,7 @@ namespace SimpleLogger.Sample
             logger.DebugOn();
             logger.Debug("I'am back!");
 
-            // test of all LogLevels
+            // Test of all LogLevels
             logger.Trace("Trace log");
             logger.Debug("Debug Log");
             logger.Info("Info Log");
