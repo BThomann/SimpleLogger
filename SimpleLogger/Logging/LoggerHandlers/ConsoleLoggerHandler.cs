@@ -1,8 +1,11 @@
 ﻿using System;
-using SimpleLogger.Logging.Formatters;
+using SimpleLogger.Logging;
 
-namespace SimpleLogger.Logging.Handlers
+namespace SimpleLogger.Logging
 {
+    /// <summary>
+    /// Logs the <see cref="LogMessage"/> to the console.
+    /// </summary>
     public class ConsoleLoggerHandler : ILoggerHandler
     {
         private readonly ILoggerFormatter _loggerFormatter;
@@ -14,6 +17,7 @@ namespace SimpleLogger.Logging.Handlers
             _loggerFormatter = loggerFormatter;
         }
 
+        /// <inheritdoc />
         public void Publish(LogMessage logMessage)
         {
             Console.WriteLine(_loggerFormatter.ApplyFormat(logMessage));

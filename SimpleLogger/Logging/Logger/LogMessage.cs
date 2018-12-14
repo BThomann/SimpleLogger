@@ -1,12 +1,14 @@
 ﻿using System;
-using SimpleLogger.Logging.Formatters;
 
 namespace SimpleLogger.Logging
 {
+    /// <summary>
+    /// Represents a LogMessage
+    /// </summary>
     public class LogMessage
     {
         public DateTime DateTime { get; set; }
-        public Logger.Level Level { get; set; }
+        public LogLevel Level { get; set; }
         public string Text { get; set; }
         public string CallingClass { get; set; }
         public string CallingMethod { get; set; }
@@ -14,7 +16,7 @@ namespace SimpleLogger.Logging
 
         public LogMessage() { }
 
-        public LogMessage(Logger.Level level, string text, DateTime dateTime, string callingClass, string callingMethod, int lineNumber)
+        public LogMessage(string text, LogLevel level, DateTime dateTime, string callingClass, string callingMethod, int lineNumber)
         {
             Level = level;
             Text = text;
@@ -24,6 +26,7 @@ namespace SimpleLogger.Logging
             LineNumber = lineNumber;
         }
 
+        /// <inheritdoc />
         public override string ToString()
         {
             return new DefaultLoggerFormatter().ApplyFormat(this);
